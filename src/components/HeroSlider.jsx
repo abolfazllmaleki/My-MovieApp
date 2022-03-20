@@ -27,9 +27,11 @@ function HeroSlider() {
   },[]);
   console.log(neww)
   return (
-    <div>
+    <div className='h-screen w-screen'>
 
       <Swiper
+
+      className='h-screen w-screen'
 
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={0}
@@ -39,19 +41,17 @@ function HeroSlider() {
 
       loop={true}
       autoplay={{
-          delay: 2000,
+          delay: 10000,
           disableOnInteraction: false
       }}
     >
-    <SwiperSlide><div className='h-screen w-screen bg-cover bg-no-repeat bg-center' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[0].poster_path:null})` }}></div></SwiperSlide>
-    <SwiperSlide><div className='h-screen w-screen bg-contain bg-no-repeat' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[1].poster_path:null})` }}></div></SwiperSlide>
-    <SwiperSlide><div className='h-screen w-screen bg-contain bg-no-repeat' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[2].poster_path:null})` }}></div></SwiperSlide>
-    <SwiperSlide><div className='h-screen w-screen bg-contain bg-no-repeat' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[3].poster_path:null})` }}></div></SwiperSlide>
+    <SwiperSlide className='h-screen w-screen grid grid-cols-3'><div className='h-4/6 w-6/6 bg-contain bg-no-repeat col-span-1' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[0].poster_path:null})` }}></div><div><div className='mb-10'><p className='font-serif text-3xl'>{neww.length>0?neww[0].title:null}</p><p className='text-lg'>{neww.length>0?neww[0].vote_average:null}*</p></div><p className='mb-2 text-xl'>overview :</p>{neww.length>0?neww[0].overview:null}</div></SwiperSlide>
 
-    ...
+
+    
   </Swiper>
     </div>
   )
 }
 
-export default HeroSlider
+export default HeroSlider;
