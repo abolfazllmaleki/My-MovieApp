@@ -3,7 +3,10 @@ import HeroSlider from '../components/HeroSlider'
 
 function Home() {
   return (
-    <HeroSlider/>
+
+      <HeroSlider/>
+
+
   )
 }
 
