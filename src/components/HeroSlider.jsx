@@ -27,11 +27,11 @@ function HeroSlider() {
   },[]);
   console.log(neww)
   return (
-    <div className= 'h-screen w-screen'>
+    <div className= 'h-full w-screen'>
 
       <Swiper
 
-      className='h-2/6 px-0 sm:h-3/6 lg:h-4/6 lg:px-15 w-full '
+      className='h-full px-0 sm:h-full lg:h-full lg:px-15 w-full '
 
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={0}
@@ -46,7 +46,7 @@ function HeroSlider() {
       }}
     >
     <SwiperSlide className='h-full w-full flex flex-row  '>
-      <div className='h-full w-1/2 lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[0].poster_path:null})` }}></div>
+      <div className='h-full w-1/2  lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[0].poster_path:null})` }}></div>
       <div className='h-full w-full '>
         <div className='mb-3 m-3'><p className='font-serif text-lg sm:text-xl'>{neww.length>0?neww[0].title:null}</p><p className='text-sm sm:text-lg'>{neww.length>0?neww[0].vote_average:null}*</p></div>
         <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs sm:text-sm'>{neww.length>0?neww[0].overview:null}</p>
