@@ -2,6 +2,7 @@ import React from 'react'
 import HeroSlider from '../components/HeroSlider'
 import Trending from '../components/Trending'
 import Card from '../components/Card'
+import PopularShow from '../components/PopularShow'
 
 function Home() {
   return (
@@ -12,13 +13,21 @@ function Home() {
 
       </div>
     
-        <div className='h-full'>
+      <div className='h-6/12 '>
 
           <Trending/>
-        </div>
+      </div>
+      <div className='h-2/6 '>
+
+      
+          <PopularShow/>
+
+      </div>
+
         
 
     </div>
+
     
     </>
 

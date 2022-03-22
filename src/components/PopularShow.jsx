@@ -9,7 +9,7 @@ import Card from './Card';
 import 'swiper/css';
 
 
-function Trending() {
+function PopularShow() {
   const[neww,setneww]=useState([])
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
@@ -22,7 +22,7 @@ function Trending() {
       winHeight: window.innerHeight,
     })
   }
-  useEffect(()=>{axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${api}&language=en-US&page=1` )
+  useEffect(()=>{axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${api}&language=en-US&page=1` )
   .then(res=>{setneww(res.data.results)})
   },[]);
 
@@ -51,11 +51,11 @@ function Trending() {
       slidesPerView={windowDimenion.winWidth<640?3:6}
 
 
-      // onSwiper={(swiper) => console.log(swiper)}
+    //   onSwiper={(swiper) => console.log(swiper)}
     > 
       {neww.map(x=>{return(
 
-          <SwiperSlide><Card moviename={x.title.substring(0,16)} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
+          <SwiperSlide><Card moviename={x.name.substring(0,16)} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
         
       )})
 
@@ -69,4 +69,4 @@ function Trending() {
   )
 }
 
-export default Trending
+export default PopularShow

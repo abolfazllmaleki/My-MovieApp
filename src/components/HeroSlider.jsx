@@ -20,12 +20,12 @@ function HeroSlider() {
 
 
   SwiperCore.use([Autoplay]);
-  // https://api.themoviedb.org/3/discover/movie?api_key=' + '6116d2ac7ca36dc0cda41feab8d70dfa'+ '&primary_release_year=2017&sort_by=revenue.desc
 
-  useLayoutEffect(()=>{axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api}&language=en-US&page=1` )
+
+  useEffect(()=>{axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api}&language=en-US&page=1` )
   .then(res=>{setneww(res.data.results.slice(0,4))})
   },[]);
-  console.log(neww)
+
   return (
     <div className= 'h-full w-screen'>
 
