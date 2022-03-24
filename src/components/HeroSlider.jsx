@@ -4,13 +4,14 @@ import SwiperCore, { Autoplay } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import api from '../Api/key';
+import axios from 'axios';
 
 import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import axios from 'axios';
+
 
 
 

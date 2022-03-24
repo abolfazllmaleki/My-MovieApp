@@ -1,12 +1,12 @@
 import React from 'react'
 import Home from './Pages/Home'
-import FindPage from './Pages/FindPage'
+import SearchPage from './Pages/SearchPage'
 
 
 
 function App() {
   return (
-    <FindPage/>
+    <SearchPage/>
   )
 }
 
