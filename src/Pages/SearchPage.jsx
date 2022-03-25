@@ -4,6 +4,7 @@ import SelectedMovieList from '../components/SelectedMovieList'
 import api from '../Api/key';
 import axios from 'axios';
 import { useState,useEffect } from 'react';
+import Pagination from '../components/Pagination'
 
 function SearchPage() {
 
@@ -19,6 +20,7 @@ function SearchPage() {
     <div>
       <div><Menu/></div>
       <div><SelectedMovieList movies={neww}/></div>
+      <div><Pagination/></div>
 
 
       </div>

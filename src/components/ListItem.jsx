@@ -45,10 +45,7 @@ export default function ListItem({ movie }) {
               </dt>
               <dd>{movie.vote_average}</dd>
             </div>
-            <div>
-              <dt className="sr-only">Rating</dt>
-              <dd className="px-1.5 ring-1 ring-slate-200 rounded">{movie.rating}</dd>
-            </div>
+
             <div className="ml-2">
               <dt className="sr-only">Year</dt>
               <dd>{movie.release_date.substring(0,4)}</dd>
@@ -62,7 +59,7 @@ export default function ListItem({ movie }) {
                 {genre()}
               </dd>
             </div>
-            <div>
+            {/* <div>
               <dt className="sr-only">Runtime</dt>
               <dd className="flex items-center">
                 <svg width="2" height="2" fill="currentColor" className="mx-2 text-slate-300" aria-hidden="true">
@@ -70,7 +67,7 @@ export default function ListItem({ movie }) {
                 </svg>
                 {movie.runtime}
               </dd>
-            </div>
+            </div> */}
             <div className="flex-none w-full mt-2 font-normal">
               <dt className="sr-only">Cast</dt>
               <dd className="text-slate-400">{movie.cast}</dd>
