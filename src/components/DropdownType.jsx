@@ -8,7 +8,7 @@ function classNames(...classes) {
 }
 
 export default function Examplee(props) {
-  const[trend,settrend]=useState('type')
+  const[trend,settrend]=useState('upcoming')
   useEffect(()=>{
     props.trend(trend)
 
@@ -20,7 +20,7 @@ export default function Examplee(props) {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-          {trend}
+          {trend==='top_rated'?'top Rated':trend}
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
         </Menu.Button>
       </div>
@@ -56,7 +56,7 @@ export default function Examplee(props) {
               {({ active }) => (
                 <option
                 onClick={(e)=>settrend(e.target.value)}
-                value={'top rated'}
+                value={'top_rated'}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
@@ -70,7 +70,7 @@ export default function Examplee(props) {
               {({ active }) => (
                 <option
                 onClick={(e)=>settrend(e.target.value)}
-                value={'Upcoming'}
+                value={'upcoming'}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'

@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from "react"
 import Dropdown from '../components/Dropdown'
 import DropdownType from '../components/DropdownType'
 import DropdownGenres from '../components/DropdownGenres'
 import SearchField from '../components/SearchField'
-function Menu() {
+function Menu(props) {
   const[name,setname]=useState(null)
   const[type,settype]=useState(null)
   const[genres,setgenres]=useState(null)
   const[trend,settrend]=useState(null)
+  const Send =()=>{
+    
+    props.genres(genres)
+    props.name(name)
+    props.type(type)
+    props.trend(trend)
+  
+  }
 
   
 
@@ -34,7 +42,7 @@ function Menu() {
         <div className=''>
             <DropdownType trend = {(x)=>settrend(x)}/>
         </div>
-        <button>SEARCH</button>
+        <button onClick={()=>Send()}>SEARCH</button>
 
     </div>
 
