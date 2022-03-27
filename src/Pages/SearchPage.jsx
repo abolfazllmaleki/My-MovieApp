@@ -19,7 +19,6 @@ function SearchPage() {
     settrend('on_the_air')
   }
 
-  
 
 
 
@@ -34,22 +33,20 @@ function SearchPage() {
         setneww(the)
 
 
-          }
-
-          else{
+        }else{
           setneww(res.data.results)
 
       }
     })}
-    ,[type,trend,genres]);
+    ,[type,trend,genres,page]);
   console.log(neww)
 
 
   return (
     <div>
-      <div><Menu name={(e)=>setname(e)} type={(e)=>settype(e)} genres={(x)=>setgenres(x)} trend = {(x)=>settrend(x)} /></div>
+      <div><Menu name={(e)=>setname(e)} type={(e)=>settype(e)} genres={(x)=>setgenres(x)} trend = {(x)=>settrend(x) } page={(x)=>{setpage(1)}} /></div>
       <div><SelectedMovieList movies={neww}/></div>
-      <div><Pagination/></div>
+      <div><Pagination page={(x)=>{setpage(x)}} pgg={page}/></div>
 
 
       </div>

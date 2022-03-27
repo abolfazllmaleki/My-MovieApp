@@ -15,6 +15,7 @@ function Menu(props) {
     props.name(name)
     props.type(type)
     props.trend(trend)
+    props.page(1)
   
   }
 
