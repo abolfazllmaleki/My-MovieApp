@@ -29,11 +29,33 @@ function SearchPage() {
       
       if(genres=='comedy'){
 
-        const the=res.data.results.filter(x=>x.genre_ids[0]==35)
+        const the=res.data.results.filter(x=>x.genre_ids[0]===35)
         setneww(the)
 
 
-        }else{
+        }
+      else if(genres=='Drama'){
+
+        const the=res.data.results.filter(x=>x.genre_ids[0]===18)
+        setneww(the)
+
+
+        }
+      else if(genres=='horror'){
+
+        const the=res.data.results.filter(x=>x.genre_ids[0]===27)
+        setneww(the)
+
+
+        }
+      else if(genres=='action'){
+
+        const the=res.data.results.filter(x=>x.genre_ids[0]===28)
+        setneww(the)
+
+
+        }
+        else{
           setneww(res.data.results)
 
       }
