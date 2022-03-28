@@ -15,6 +15,7 @@ function SearchPage() {
   const[trend,settrend]=useState('upcoming')
   const[page,setpage]=useState(1)
 
+
   if(type==='tv' && trend==='upcoming'){
     settrend('on_the_air')
   }
@@ -24,7 +25,20 @@ function SearchPage() {
 
   
   useEffect(()=>{
-  axios.get(`https://api.themoviedb.org/3/${type}/${trend}?api_key=${api}&language=en-US&page=${page}` )
+  if(name!=null){
+    setneww([])
+    try{
+      axios.get(`https://api.themoviedb.org/3/search/${type}?api_key=${api}&query=${name}` )
+      .then(res=>{
+        console.log(res)
+        setneww(res.data.results)})
+      
+    }catch{
+      console.log('error')
+    }
+    
+
+  }else{axios.get(`https://api.themoviedb.org/3/${type}/${trend}?api_key=${api}&language=en-US&page=${page}` )
     .then(res=>{
       
       if(genres=='comedy'){
@@ -59,9 +73,9 @@ function SearchPage() {
           setneww(res.data.results)
 
       }
-    })}
+    })}}
     ,[type,trend,genres,page]);
-  console.log(neww)
+  
 
 
   return (

@@ -5,6 +5,7 @@ export default function Example(props) {
 
     const[name,setname]=useState(null)
     const[type,settype]=useState('movie')
+    
 
 
 

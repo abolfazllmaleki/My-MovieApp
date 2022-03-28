@@ -9,6 +9,7 @@ function Menu(props) {
   const[type,settype]=useState(null)
   const[genres,setgenres]=useState(null)
   const[trend,settrend]=useState(null)
+  
   const Send =()=>{
     
     props.genres(genres)
