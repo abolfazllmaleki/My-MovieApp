@@ -78,6 +78,7 @@ function SearchPage() {
   
 
 
+
   return (
     <div>
       <div><Menu name={(e)=>setname(e)} type={(e)=>settype(e)} genres={(x)=>setgenres(x)} trend = {(x)=>settrend(x) } page={(x)=>{setpage(1)}} /></div>
