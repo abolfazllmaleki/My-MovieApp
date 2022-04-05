@@ -55,7 +55,7 @@ function PopularShow() {
     > 
       {neww.map(x=>{return(
 
-          <SwiperSlide><Card moviename={x.name.substring(0,16)} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
+          <SwiperSlide className='mx-2 mb-2'><Card moviename={x.name.substring(0,16)} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
         
       )})
 

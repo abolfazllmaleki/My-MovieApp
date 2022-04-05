@@ -10,10 +10,16 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <>
+    <div>
 
     <Router>
+      <div className='mb-2'>
       <Navbar/>
+
+      </div>
+      <div  className='lg:mx-4 '>
+
+      
       <Routes>
         <Route exact path='/'
         element={
@@ -40,9 +46,10 @@ function App() {
         />
 
       </Routes>
+      </div>
 
     </Router>
-    </>
+    </div>
     
   )
 }

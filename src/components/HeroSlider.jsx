@@ -27,12 +27,23 @@ function HeroSlider() {
   .then(res=>{setneww(res.data.results.slice(0,4))})
   },[]);
 
+
+  const th= neww.map((x)=>{
+    if(x.overview.length>190){
+      return x.overview.slice(0,185) + '...'
+    }else{
+      return x.overview
+    }
+
+  })
+  
+
   return (
-    <div className= 'h-full w-screen'>
+    <div className= 'h-full w-full'>
 
       <Swiper
 
-      className='h-full px-0 sm:h-full lg:h-full lg:px-15 w-full '
+      className='h-full px-0 sm:h-full lg:h-full lg:px-15  w-full '
 
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={0}
@@ -46,29 +57,29 @@ function HeroSlider() {
           disableOnInteraction: false
       }}
     >
-    <SwiperSlide className='h-full w-full flex flex-row  '>
-      <div className='h-full w-1/2  lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[0].poster_path:null})` }}></div>
+    <SwiperSlide className='h-full w-full flex flex-row'>
+      <div className='h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[0].poster_path:null})` }}></div>
       <div className='h-full w-full '>
         <div className='mb-3 m-3'><p className='font-serif text-lg sm:text-xl'>{neww.length>0?neww[0].title:null}</p><p className='text-sm sm:text-lg'>{neww.length>0?neww[0].vote_average:null}*</p></div>
-        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs sm:text-sm'>{neww.length>0?neww[0].overview:null}</p>
+        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 w-11/12 text-xs sm:text-sm'>{neww.length>0?th[0]:null}</p>
         </div></SwiperSlide>
     <SwiperSlide className='h-full w-full flex flex-row  '>
-      <div className='h-full w-1/2 lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[1].poster_path:null})` }}></div>
+      <div className='h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[1].poster_path:null})` }}></div>
       <div className='h-full w-full '>
         <div className='mb-3 m-3'><p className='font-serif text-lg sm:text-xl'>{neww.length>0?neww[1].title:null}</p><p className='text-sm sm:text-lg'>{neww.length>0?neww[1].vote_average:null}*</p></div>
-        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs sm:text-sm'>{neww.length>0?neww[1].overview:null}</p>
+        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs w-11/12  sm:text-sm'>{neww.length>0?th[1]:null}</p>
         </div></SwiperSlide>
     <SwiperSlide className='h-full w-full flex flex-row  '>
-      <div className='h-full w-1/2 lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[2].poster_path:null})` }}></div>
+      <div className='h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[2].poster_path:null})` }}></div>
       <div className='h-full w-full '>
         <div className='mb-3 m-3'><p className='font-serif text-lg sm:text-xl'>{neww.length>0?neww[2].title:null}</p><p className='text-sm sm:text-lg'>{neww.length>0?neww[2].vote_average:null}*</p></div>
-        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs sm:text-sm'>{neww.length>0?neww[2].overview:null}</p>
+        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 w-11/12 text-xs   sm:text-sm'>{neww.length>0?th[2]:null}</p>
         </div></SwiperSlide>
     <SwiperSlide className='h-full w-full flex flex-row  '>
-      <div className='h-full w-1/2 lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[3].poster_path:null})` }}></div>
+      <div className='h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[3].poster_path:null})` }}></div>
       <div className='h-full w-full '>
         <div className='mb-3 m-3'><p className='font-serif text-lg sm:text-xl'>{neww.length>0?neww[3].title:null}</p><p className='text-sm sm:text-lg'>{neww.length>0?neww[3].vote_average:null}*</p></div>
-        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs sm:text-sm'>{neww.length>0?neww[3].overview:null}</p>
+        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs w-11/12 break-normal sm:text-sm'>{neww.length>0?th[3]:null}</p>
         </div></SwiperSlide>
 
 

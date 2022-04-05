@@ -7,17 +7,17 @@ import PopularShow from '../components/PopularShow'
 function Home() {
   return (
     <>
-    <div className='h-screen w-screen'>
+    <div className='h-screen w-full'>
       <div className='h-2/6 sm:h-3/6 lg:h-4/6'>
         <HeroSlider/>
 
       </div>
     
-      <div className='h-6/12 '>
+      <div className='h-8/12 '>
 
           <Trending/>
       </div>
-      <div className='h-2/6 '>
+      <div className='h-8/12 '>
 
       
           <PopularShow/>
