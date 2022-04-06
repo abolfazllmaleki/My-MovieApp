@@ -53,7 +53,7 @@ function SimilarSlider({neww}) {
     > 
       {neww.map(x=>{return(
 
-          <SwiperSlide><Card moviename={x.title.substring(0,16)} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
+          <SwiperSlide><Card moviename={x.title.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
         
       )})
 

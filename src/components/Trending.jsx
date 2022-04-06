@@ -11,6 +11,7 @@ import 'swiper/css';
 
 function Trending() {
   const[neww,setneww]=useState([])
+  console.log(neww)
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
@@ -55,7 +56,7 @@ function Trending() {
     > 
       {neww.map(x=>{return(
 
-          <SwiperSlide className='mx-2 mb-2'><Card moviename={x.title.substring(0,16)} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
+          <SwiperSlide className='mx-2 mb-2'><Card moviename={x.title.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
         
       )})
 

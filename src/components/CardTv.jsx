@@ -1,10 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 
 function Card(props) {
-  const Navi=useNavigate()
-
   
   return (
     <>
@@ -14,11 +11,7 @@ function Card(props) {
 
       </div>
       <a
-      href={`/movie/${props.id}`}
-      >
-
-      
-
+      href={`/tv/${props.id}`}>
       
       <button className=' absolute  z-40 text-transparent rounded-lg w-full h-full hover:text-white hover:backdrop-blur-sm hover:backdrop-brightness-50 hover:transition-all hover:duration-200' >more info</button>
       </a>

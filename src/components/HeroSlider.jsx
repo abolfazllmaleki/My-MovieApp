@@ -58,10 +58,16 @@ function HeroSlider() {
       }}
     >
     <SwiperSlide className='h-full w-full flex flex-row'>
-      <div className='h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[0].poster_path:null})` }}></div>
+     
+      {neww.length==4? <div className='h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[0].poster_path:null})` }}></div>:<div className='border border-blue-300 shadow rounded-md bg-slate-200 animate-pulse h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5'></div>}
       <div className='h-full w-full '>
         <div className='mb-3 m-3'><p className='font-serif text-lg sm:text-xl'>{neww.length>0?neww[0].title:null}</p><p className='text-sm sm:text-lg'>{neww.length>0?neww[0].vote_average:null}*</p></div>
-        <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 w-11/12 text-xs sm:text-sm'>{neww.length>0?th[0]:null}</p>
+        <p className='mb-2 text-sm sm:text-lg'>overview :</p>{neww.length==0?        
+        <div class="grid grid-cols-3 gap-4">
+          <div class="h-2 bg-slate-200 rounded col-span-0"></div>
+          <div class="h-2 bg-slate-200 rounded col-span-2"></div>
+          <div class="h-2 bg-slate-200 rounded col-span-1"></div>
+        </div>:<p className='mb-2 w-11/12 text-xs sm:text-sm'>{neww.length>0?th[0]:null}</p>}
         </div></SwiperSlide>
     <SwiperSlide className='h-full w-full flex flex-row  '>
       <div className='h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(${neww.length>0?'https://image.tmdb.org/t/p/w780/'+neww[1].poster_path:null})` }}></div>

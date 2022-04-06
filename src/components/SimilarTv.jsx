@@ -2,16 +2,17 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import api from '../Api/key';
 import axios from 'axios';
-import Card from './CardTv';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import Card from './CardTv';
 
 import 'swiper/css';
 
 
-function PopularShow() {
-  const[neww,setneww]=useState([])
+function SimilarSlider({neww}) {
+
+    
+
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
@@ -23,9 +24,7 @@ function PopularShow() {
       winHeight: window.innerHeight,
     })
   }
-  useEffect(()=>{axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${api}&language=en-US&page=1` )
-  .then(res=>{setneww(res.data.results)})
-  },[]);
+
 
 
   useEffect(() => {
@@ -41,9 +40,9 @@ function PopularShow() {
 
   return (
       <div className='h-full w-full'>
-          <div>
+          <div className='font-serif text-sm my-2'>
 
-          this is trnding
+          similar tv shows:
           </div>
           <div>
 
@@ -52,11 +51,11 @@ function PopularShow() {
       slidesPerView={windowDimenion.winWidth<640?3:6}
 
 
-    //   onSwiper={(swiper) => console.log(swiper)}
+      // onSwiper={(swiper) => console.log(swiper)}
     > 
       {neww.map(x=>{return(
 
-          <SwiperSlide className='mx-2 mb-2'><Card moviename={x.name.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
+          <SwiperSlide><Card moviename={x.name.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
         
       )})
 
@@ -70,4 +69,4 @@ function PopularShow() {
   )
 }
 
-export default PopularShow
+export default SimilarSlider

@@ -4,8 +4,9 @@ import axios from 'axios'
 import { useEffect,useState } from 'react'
 import Cast from '../components/Cast'
 import Trailer from '../components/Trailer'
-import SimilarSlider from '../components/SimiarSlider'
+
 import { useParams } from 'react-router-dom'
+import SimilarSlider from '../components/SimilarTv'
 // 676705
 
 function MoviePage() {
@@ -23,23 +24,24 @@ function MoviePage() {
 
 
     useEffect(()=>{
-        axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${api}&language=en-US`)
+        axios.get(`https://api.themoviedb.org/3/tv/${params.id}?api_key=${api}&language=en-US`)
         .then(res=>{
-            console.log(res.data)
+            
             setPoster(res.data.poster_path)
             setGenres(res.data.genres)
             setoverview(res.data.overview)
-            settitle(res.data.title)
-        axios.get(`https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${api}&language=en-US`)
+            settitle(res.data.title?res.data.title:res.data.name)
+        axios.get(`https://api.themoviedb.org/3/tv/${params.id}/credits?api_key=${api}&language=en-US`)
         .then(res=>{console.log(res)
         setcast(res.data.cast.slice(0,4))})
-        axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=${api}&language=en-US`)
+        axios.get(`https://api.themoviedb.org/3/tv/${params.id}/videos?api_key=${api}&language=en-US`)
         .then(res=>{
 
             settrailer(res.data.results[0].key)
         })
-        axios.get(`https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=${api}&language=en-US&page=1`)
+        axios.get(`https://api.themoviedb.org/3/tv/${params.id}/similar?api_key=${api}&language=en-US&page=1`)
         .then(res=>{
+            
             setsimilar(res.data.results.slice(0,6))
         })
 
@@ -48,7 +50,7 @@ function MoviePage() {
         
         })
       },[])
-      
+
 
  
   return (

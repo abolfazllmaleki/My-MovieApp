@@ -5,6 +5,7 @@ import MoviePage from './Pages/MoviePage'
 import SearchPage from './Pages/SearchPage'
 import { BrowserRouter as Router , Route ,Routes} from 'react-router-dom'
 import Navbar from './components/Navbar'
+import TvPage from './Pages/TvPage'
 
 
 
@@ -41,6 +42,13 @@ function App() {
         element={
           <>
           <MoviePage/>
+          </>
+        }
+        />
+        <Route exact path='/tv/:id'
+        element={
+          <>
+          <TvPage/>
           </>
         }
         />
