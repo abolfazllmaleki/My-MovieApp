@@ -29,6 +29,7 @@ export default function ListItem({ movie }) {
       }
 
     }
+    console.log(movie)
 
   
 
@@ -61,6 +62,7 @@ export default function ListItem({ movie }) {
                 {genre()}
               </dd>
             </div>
+
             {/* <div>
               <dt className="sr-only">Runtime</dt>
               <dd className="flex items-center">
@@ -74,6 +76,18 @@ export default function ListItem({ movie }) {
               <dt className="sr-only">Cast</dt>
               <dd className="text-slate-400">{movie.cast}</dd>
             </div>
+            <div className=' bg-slate-900 my-2 xl:text-base w-32 h-8 rounded-lg hover:bg-white transition-all'>
+            
+              <a
+               href={movie.release_date?`/movie/${movie.id}`:`/tv/${movie.id}`}
+               className='no-underline w-full'>
+
+            <button className='bg-red text-white w-full h-8 text-sm hover:text-black border-2'>
+            more info
+            </button>
+
+              </a>
+        </div>
           </dl>
         </div>
       </article>
