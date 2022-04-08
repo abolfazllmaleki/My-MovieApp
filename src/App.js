@@ -14,11 +14,11 @@ function App() {
     <div>
 
     <Router>
-      <div className='mb-2'>
-      <Navbar/>
+      <div className='fixed w-full z-50'>
+      <Navbar />
 
       </div>
-      <div  className='lg:mx-4 '>
+      <div  className='lg:mx-4 pt-20 '>
 
       
       <Routes>

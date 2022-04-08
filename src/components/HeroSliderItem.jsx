@@ -17,7 +17,7 @@ function HeroSliderItem({movie}) {
                 <div className='h-full w-full flex flex-row  '>
                 <div className='h-full w-1/2 rounded-lg lg:w-1/4 md:w-2/5 bg-contain bg-no-repeat mr-2' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w780/${movie.poster_path})` }}></div>
                   <div className='h-full w-full '>
-                    <div className='mb-3 m-3'><p className='font-serif text-lg sm:text-xl'>{movie.title}</p>
+                    <div className='mb-3 m-3'>{!movie.overview?<div className=' animate-pulse rounded-sm bg-slate-200 h-4 w-20'></div>:<p className='font-serif text-lg sm:text-xl'>{movie.title}</p>}
                     <div className='flex'>
                     <p className='text-sm sm:text-lg mr-2'>{movie.vote_average}</p>
                     <dt className="text-sky-500">

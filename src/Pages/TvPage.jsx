@@ -54,7 +54,7 @@ function MoviePage() {
 
  
   return (
-    <div className='w-screen h-screen p-4 lg:px-14 xl:px-24' >
+    <div className='w-full h-screen p-4 lg:px-14 xl:px-24' >
         <div className='w-full h-1/2 mb-4 sm:h-5/6  flex justify-center' >
             <div className='w-full lg:w-1/2'>
                 {poster?<img className='w-full h-full rounded-xl' src={`https://image.tmdb.org/t/p/w780${poster}`} alt="" />:<div className='border border-blue-300 shadow rounded-md bg-slate-200 animate-pulse w-full h-full rounded-xl'></div>}

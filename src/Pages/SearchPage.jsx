@@ -22,7 +22,7 @@ function SearchPage() {
 
 
 
-
+  console.log(neww)
   
   useEffect(()=>{
   if(name!=null){

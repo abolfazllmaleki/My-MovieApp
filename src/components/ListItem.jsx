@@ -4,6 +4,18 @@ export default function ListItem({ movie }) {
 
 
 
+  const dodo=()=>{
+
+    if(movie.release_date || movie.first_air_date){
+      return(<dd>{!movie.release_date?movie.first_air_date.substring(0,4):movie.release_date.substring(0,4)}</dd>)
+    }else{
+      return(<></>)
+    }
+
+  }
+
+
+
 
 
     const genre = ()=>{
@@ -29,7 +41,7 @@ export default function ListItem({ movie }) {
       }
 
     }
-    console.log(movie)
+   
 
   
 
@@ -51,7 +63,7 @@ export default function ListItem({ movie }) {
 
             <div className="ml-2">
               <dt className="sr-only">Year</dt>
-              <dd>{!movie.release_date?movie.first_air_date.substring(0,4):movie.release_date.substring(0,4)}</dd>
+              {dodo()}
             </div>
             <div>
               <dt className="sr-only">Genre</dt>
