@@ -11,6 +11,7 @@ export default function Example(props) {
 
     useEffect(()=>{
       props.name(name)
+
       props.type(type)
   
     },[name,type]) 

@@ -4,19 +4,29 @@ import Dropdown from '../components/Dropdown'
 import DropdownType from '../components/DropdownType'
 import DropdownGenres from '../components/DropdownGenres'
 import SearchField from '../components/SearchField'
+import { useDispatch } from 'react-redux'
+import { inc ,dec,rest} from '../actions';
 function Menu(props) {
-  const[name,setname]=useState(null)
+  const[name,setname]=useState('')
   const[type,settype]=useState(null)
   const[genres,setgenres]=useState(null)
   const[trend,settrend]=useState(null)
-  
+
+  const dispatch = useDispatch()
+
   const Send =()=>{
+
+
     
+    
+    dispatch(rest())
     props.genres(genres)
     props.name(name)
     props.type(type)
     props.trend(trend)
-    props.page(1)
+    
+    setgenres(null)
+
   
   }
 

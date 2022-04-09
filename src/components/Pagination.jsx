@@ -1,30 +1,33 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useEffect, useState } from 'react'
-
-export default function Example(props) {
-  const[page,setpage]=useState(props.pgg)
-
-
-  useEffect(()=>{
-    props.page(page)
+import { useDispatch } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
+import { inc ,dec,res} from '../actions';
 
 
-    
-  },[page])
+export default function Example() {
 
+  const page = useSelector((state)=>{return state.page})
+  const dispatch = useDispatch()
+
+
+
+
+  
+  
   
   return (
     <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
       <div className="flex-1 flex justify-between sm:hidden">
         <button
-          onClick={()=>setpage(page-1)}
+          onClick={()=>dispatch(dec())}
           
           className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
         >
           Previous
         </button>
         <button
-          onClick={()=>setpage(page+1)}
+          onClick={()=>dispatch(inc())}
           
           className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50" 
         >
@@ -36,7 +39,7 @@ export default function Example(props) {
         <div>
           <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
             <button
-              onClick={()=>setpage(page-1)}
+            onClick={()=>dispatch(dec())}
               className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
             >
               <span className="sr-only">Previous</span>
@@ -48,10 +51,10 @@ export default function Example(props) {
               href="#"
               className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
             >
-              {props.pgg}
+              {page}
             </a>
             <button
-              onClick={()=>setpage(page+1)}
+          onClick={()=>dispatch(inc())}
               className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
             >
               <span className="sr-only">Next</span>

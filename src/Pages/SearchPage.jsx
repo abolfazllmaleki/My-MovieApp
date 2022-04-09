@@ -6,32 +6,47 @@ import axios from 'axios';
 import { useState,useEffect } from 'react';
 import Pagination from '../components/Pagination'
 
+import { connect, useSelector } from 'react-redux';
+
+const mapto = (state)=>{
+
+
+
+  return state
+
+}
+
+
 function SearchPage() {
 
   const[neww,setneww]=useState([])
-  const[name,setname]=useState(null)
+  const[name,setname]=useState('')
   const[type,settype]=useState('movie')
   const[genres,setgenres]=useState(null)
   const[trend,settrend]=useState('upcoming')
-  const[page,setpage]=useState(1)
+
+  // const[page,setPage]=useState(1)
+
+  const page = useSelector((state)=>{return state.page})
+
+
 
 
   if(type==='tv' && trend==='upcoming'){
     settrend('on_the_air')
   }
-
-
-
-  console.log(neww)
+  console.log(name)
   
   useEffect(()=>{
-  if(name!=null){
+  if(name!=''){
     setneww([])
     try{
       axios.get(`https://api.themoviedb.org/3/search/${type}?api_key=${api}&query=${name}` )
       .then(res=>{
-        console.log(res)
-        setneww(res.data.results)})
+
+        setneww(res.data.results)
+        setname(null)
+      })
       
     }catch{
       console.log('error')
@@ -81,13 +96,13 @@ function SearchPage() {
 
   return (
     <div>
-      <div><Menu name={(e)=>setname(e)} type={(e)=>settype(e)} genres={(x)=>setgenres(x)} trend = {(x)=>settrend(x) } page={(x)=>{setpage(1)}} /></div>
+      <div><Menu name={(e)=>setname(e)}  type={(e)=>settype(e)} genres={(x)=>setgenres(x)} trend = {(x)=>settrend(x) }  /></div>
       <div><SelectedMovieList movies={neww}/></div>
-      <div><Pagination page={(x)=>{setpage(x)}} pgg={page}/></div>
+      <div><Pagination /></div>
 
 
       </div>
   )
 }
 
-export default SearchPage
+export default connect(mapto)(SearchPage)
