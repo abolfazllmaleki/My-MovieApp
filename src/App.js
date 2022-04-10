@@ -6,6 +6,8 @@ import SearchPage from './Pages/SearchPage'
 import { BrowserRouter as Router , Route ,Routes} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import TvPage from './Pages/TvPage'
+import About from './Pages/About'
+
 
 
 
@@ -26,6 +28,7 @@ function App() {
         element={
           <>
           <Home/>
+          
           </>
         }
         />
@@ -52,11 +55,20 @@ function App() {
           </>
         }
         />
+        <Route exact path='/about'
+        element={
+          <>
+          <About/>
+          </>
+        }
+        />
 
       </Routes>
       </div>
-
+        
     </Router>
+
+ 
     </div>
     
   )

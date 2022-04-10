@@ -43,7 +43,7 @@ function PopularShow() {
       <div className='h-full w-full'>
           <div>
 
-          this is trnding
+          trending Tv Shows
           </div>
           <div>
 

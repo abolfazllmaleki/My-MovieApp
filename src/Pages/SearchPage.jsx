@@ -20,7 +20,7 @@ const mapto = (state)=>{
 function SearchPage() {
 
   const[neww,setneww]=useState([])
-  const[name,setname]=useState('')
+  const[name,setname]=useState(null)
   const[type,settype]=useState('movie')
   const[genres,setgenres]=useState(null)
   const[trend,settrend]=useState('upcoming')
@@ -35,17 +35,20 @@ function SearchPage() {
   if(type==='tv' && trend==='upcoming'){
     settrend('on_the_air')
   }
-  console.log(name)
   
+ 
   useEffect(()=>{
-  if(name!=''){
+
+  if(name!=null){
     setneww([])
+    
     try{
       axios.get(`https://api.themoviedb.org/3/search/${type}?api_key=${api}&query=${name}` )
       .then(res=>{
 
+
         setneww(res.data.results)
-        setname(null)
+        
       })
       
     }catch{
@@ -89,7 +92,7 @@ function SearchPage() {
 
       }
     })}}
-    ,[type,trend,genres,page]);
+    ,[type,trend,genres,page,name]);
   
 
 

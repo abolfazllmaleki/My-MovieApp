@@ -43,7 +43,7 @@ function Trending() {
       <div className='h-full w-full'>
           <div>
 
-          this is trnding
+          trending movies
           </div>
           <div>
 
