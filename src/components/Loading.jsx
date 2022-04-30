@@ -9,7 +9,7 @@ function Loading() {
         <span class="visually-hidden">.</span>
       </div>
     </div>
-            </div>
+      </div>
   )
 }
 

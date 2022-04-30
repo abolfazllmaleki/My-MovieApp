@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Card(props) {
+function Card({moviename,image,id}) {
   
   return (
     <>
@@ -11,7 +11,7 @@ function Card(props) {
 
       </div>
       <a
-      href={`/tv/${props.id}`}>
+      href={`/tv/${id}`}>
       
       <button className=' absolute  z-40 text-transparent rounded-lg w-full h-full hover:text-white hover:backdrop-blur-sm hover:backdrop-brightness-50 hover:transition-all hover:duration-200' >more info</button>
       </a>
@@ -19,19 +19,16 @@ function Card(props) {
 
 
       <div className='h-full'>
-      <img  src={props.image} alt="" />
+      <img  src={image} alt="" />
 
       </div>
 
     <div className="px-6 py-4 h-20">
-      <div className="font-bold text-xs mb-2">{props.moviename}</div>
+      <div className="font-bold text-xs mb-2">{moviename}</div>
 
     </div>
       </div>
-      {/* <div  className=' h-full w-full absolute  top-0'>
-        <button className=''> asdas</button>
 
-      </div> */}
 
 
 

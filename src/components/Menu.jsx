@@ -16,9 +16,6 @@ function Menu(props) {
 
   const Send =()=>{
 
-
-    
-    
     dispatch(rest())
     props.genres(genres)
     props.name(name)
@@ -43,9 +40,7 @@ function Menu(props) {
       <SearchField name={(e)=>setname(e)} type={(e)=>settype(e)}/>
     </div>
     <div className='flex flex-row space-x-7' >
-        {/* <div className='ml-20'>
-            <Dropdown/>
-        </div> */}
+
 
         
 

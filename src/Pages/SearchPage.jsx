@@ -8,7 +8,7 @@ import Pagination from '../components/Pagination'
 
 import { connect, useSelector } from 'react-redux';
 
-const mapto = (state)=>{
+const maptostate = (state)=>{
 
 
 
@@ -19,18 +19,13 @@ const mapto = (state)=>{
 
 function SearchPage() {
 
-  const[neww,setneww]=useState([])
+  const[movies,setmovies]=useState([])
   const[name,setname]=useState(null)
   const[type,settype]=useState('movie')
   const[genres,setgenres]=useState(null)
   const[trend,settrend]=useState('upcoming')
 
-  // const[page,setPage]=useState(1)
-
   const page = useSelector((state)=>{return state.page})
-
-
-
 
   if(type==='tv' && trend==='upcoming'){
     settrend('on_the_air')
@@ -40,14 +35,14 @@ function SearchPage() {
   useEffect(()=>{
 
   if(name!=null){
-    setneww([])
+    setmovies([])
     
     try{
       axios.get(`https://api.themoviedb.org/3/search/${type}?api_key=${api}&query=${name}` )
       .then(res=>{
 
 
-        setneww(res.data.results)
+        setmovies(res.data.results)
         
       })
       
@@ -62,33 +57,33 @@ function SearchPage() {
       if(genres=='comedy'){
 
         const the=res.data.results.filter(x=>x.genre_ids[0]===35)
-        setneww(the)
+        setmovies(the)
 
 
         }
       else if(genres=='Drama'){
 
         const the=res.data.results.filter(x=>x.genre_ids[0]===18)
-        setneww(the)
+        setmovies(the)
 
 
         }
       else if(genres=='horror'){
 
         const the=res.data.results.filter(x=>x.genre_ids[0]===27)
-        setneww(the)
+        setmovies(the)
 
 
         }
       else if(genres=='action'){
 
         const the=res.data.results.filter(x=>x.genre_ids[0]===28)
-        setneww(the)
+        setmovies(the)
 
 
         }
         else{
-          setneww(res.data.results)
+          setmovies(res.data.results)
 
       }
     })}}
@@ -100,7 +95,7 @@ function SearchPage() {
   return (
     <div>
       <div><Menu name={(e)=>setname(e)}  type={(e)=>settype(e)} genres={(x)=>setgenres(x)} trend = {(x)=>settrend(x) }  /></div>
-      <div><SelectedMovieList movies={neww}/></div>
+      <div><SelectedMovieList movies={movies}/></div>
       <div><Pagination /></div>
 
 
@@ -108,4 +103,4 @@ function SearchPage() {
   )
 }
 
-export default connect(mapto)(SearchPage)
+export default connect(maptostate)(SearchPage)

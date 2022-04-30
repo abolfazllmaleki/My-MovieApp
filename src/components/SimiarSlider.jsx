@@ -9,7 +9,7 @@ import Card from './Card';
 import 'swiper/css';
 
 
-function SimilarSlider({neww}) {
+function SimilarSlider({movies}) {
 
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
@@ -47,13 +47,10 @@ function SimilarSlider({neww}) {
     <Swiper
       spaceBetween={3}
       slidesPerView={windowDimenion.winWidth<640?3:6}
-
-
-      // onSwiper={(swiper) => console.log(swiper)}
     > 
-      {neww.map(x=>{return(
+      {movies.map(x=>{return(
 
-          <SwiperSlide><Card moviename={x.title.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
+          <SwiperSlide key={x.id}><Card moviename={x.title.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
         
       )})
 

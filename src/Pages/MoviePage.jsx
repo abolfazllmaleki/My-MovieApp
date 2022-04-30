@@ -6,7 +6,7 @@ import Cast from '../components/Cast'
 import Trailer from '../components/Trailer'
 import SimilarSlider from '../components/SimiarSlider'
 import { useParams } from 'react-router-dom'
-// 676705
+
 
 function MoviePage() {
 
@@ -17,21 +17,19 @@ function MoviePage() {
     const[cast,setcast]=useState([])
     const[trailer,settrailer]=useState('')
     const[similar,setsimilar]=useState([])
-    const[back,setback]=useState('')
+    const[backdrop,setbackdrop]=useState('')
     const params=useParams()
-
-
 
 
     useEffect(()=>{
         axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${api}&language=en-US`)
         .then(res=>{
-            console.log(res.data)
+
             setPoster(res.data.poster_path)
             setGenres(res.data.genres)
             setoverview(res.data.overview)
             settitle(res.data.title)
-            setback(res.data.backdrop_path)
+            setbackdrop(res.data.backdrop_path)
         axios.get(`https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${api}&language=en-US`)
         .then(res=>{
         setcast(res.data.cast.slice(0,4))})
@@ -44,19 +42,15 @@ function MoviePage() {
         .then(res=>{
             setsimilar(res.data.results.slice(0,6))
         })
-
-        
-        
         
         })
       },[])
       
-      console.log(back)
  
   return (
     <div className='w-full h-screen p-4 lg:px-14 xl:px-24' >
-        <div className='w-full h-1/2 mb-4 sm:h-5/6  flex justify-center rounded-lg  bg-no-repeat' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${back})`}}>
-            <div className='w-full h-full brightness-50 bg-contain  rounded-lg ' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${back})`}}></div>
+        <div className='w-full h-1/2 mb-4 sm:h-5/6  flex justify-center rounded-lg  bg-no-repeat' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${backdrop})`}}>
+            <div className='w-full h-full brightness-50 bg-contain  rounded-lg ' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${backdrop})`}}></div>
             <div className='w-full lg:w-1/2  ' >
                 {poster?<img className='w-full h-full ' src={`https://image.tmdb.org/t/p/w780${poster}`} alt="" />:<div className='border border-blue-300 shadow rounded-md bg-slate-200 animate-pulse w-full h-full rounded-xl'></div>}
             
@@ -97,13 +91,13 @@ function MoviePage() {
         <div className='flex justify-center'>
   
             {cast.map((x)=>{
-                return(<Cast castimage={`https://image.tmdb.org/t/p/w185${x.profile_path}`} castname={x.name}></Cast>)
+                return(<Cast key={x.name} castimage={`https://image.tmdb.org/t/p/w185${x.profile_path}`} castname={x.name}></Cast>)
 
             })}
 
         </div>
         <div>
-            <SimilarSlider neww={similar}/>
+            <SimilarSlider movies={similar}/>
         </div>
 
     </div>

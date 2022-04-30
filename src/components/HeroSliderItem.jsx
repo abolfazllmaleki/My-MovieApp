@@ -1,7 +1,7 @@
 import React from 'react'
 
 function HeroSliderItem({movie}) {
-    const th= (x)=>{
+    const makeShortdescription= (x)=>{
         if(x.overview.length>190){
           return x.overview.slice(0,185) + '...'
         }else{
@@ -9,9 +9,9 @@ function HeroSliderItem({movie}) {
         }
     
       }
-      console.log(movie)
 
-      const dodo=()=>{
+
+      const showSlider=()=>{
           if(movie){
               return(
                 <div className='h-full w-full flex flex-row  '>
@@ -30,7 +30,7 @@ function HeroSliderItem({movie}) {
                     </div>
                     </div>
                     
-                    <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs w-11/12 break-normal sm:text-sm'>{th(movie)}</p>
+                    <p className='mb-2 text-sm sm:text-lg'>overview :</p><p className='mb-2 text-xs w-11/12 break-normal sm:text-sm'>{makeShortdescription(movie)}</p>
                     <div className='flex justify-center bg-slate-900 my-2 xl:text-base w-32 h-8 rounded-lg hover:bg-white transition-all'>
                         
             
@@ -55,7 +55,7 @@ function HeroSliderItem({movie}) {
       
   return (
       <>
-      {dodo()}
+      {showSlider()}
       </>
 
   )

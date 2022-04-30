@@ -5,7 +5,7 @@ import { connect, useSelector } from 'react-redux';
 import { inc ,dec,res} from '../actions';
 
 
-export default function Example() {
+export default function Pagination() {
 
   const page = useSelector((state)=>{return state.page})
   const dispatch = useDispatch()

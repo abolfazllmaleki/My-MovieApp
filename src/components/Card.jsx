@@ -2,10 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
-function Card(props) {
+function Card({id,image,moviename}) {
   const Navi=useNavigate()
-
-  
   return (
     <>
     
@@ -14,7 +12,7 @@ function Card(props) {
 
       </div>
       <a
-      href={`/movie/${props.id}`}
+      href={`/movie/${id}`}
       >
 
       
@@ -26,19 +24,15 @@ function Card(props) {
 
 
       <div className='h-full'>
-      <img  src={props.image} alt="" />
+      <img  src={image} alt="" />
 
       </div>
 
     <div className="px-6 py-4 h-20">
-      <div className="font-bold text-xs mb-2">{props.moviename}</div>
+      <div className="font-bold text-xs mb-2">{moviename}</div>
 
     </div>
       </div>
-      {/* <div  className=' h-full w-full absolute  top-0'>
-        <button className=''> asdas</button>
-
-      </div> */}
 
 
 

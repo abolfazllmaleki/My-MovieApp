@@ -7,7 +7,7 @@ import Trailer from '../components/Trailer'
 
 import { useParams } from 'react-router-dom'
 import SimilarSlider from '../components/SimilarTv'
-// 676705
+
 
 function MoviePage() {
 
@@ -32,7 +32,7 @@ function MoviePage() {
             setoverview(res.data.overview)
             settitle(res.data.title?res.data.title:res.data.name)
         axios.get(`https://api.themoviedb.org/3/tv/${params.id}/credits?api_key=${api}&language=en-US`)
-        .then(res=>{console.log(res)
+        .then(res=>{
         setcast(res.data.cast.slice(0,4))})
         axios.get(`https://api.themoviedb.org/3/tv/${params.id}/videos?api_key=${api}&language=en-US`)
         .then(res=>{
@@ -96,13 +96,13 @@ function MoviePage() {
         <div className='flex justify-center'>
   
             {cast.map((x)=>{
-                return(<Cast castimage={`https://image.tmdb.org/t/p/w185${x.profile_path}`} castname={x.name}></Cast>)
+                return(<Cast key={x.name} castimage={`https://image.tmdb.org/t/p/w185${x.profile_path}`} castname={x.name}></Cast>)
 
             })}
 
         </div>
         <div>
-            <SimilarSlider neww={similar}/>
+            <SimilarSlider movies={similar}/>
         </div>
 
     </div>

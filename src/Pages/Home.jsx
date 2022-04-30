@@ -29,7 +29,6 @@ function Home() {
       </div>
       <div className='h-8/12 '>
 
-      
           <PopularShow/>
 
       </div>

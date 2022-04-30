@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import api from '../Api/key';
 import axios from 'axios';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from './Card';
 
@@ -10,8 +9,8 @@ import 'swiper/css';
 
 
 function Trending() {
-  const[neww,setneww]=useState([])
-  console.log(neww)
+  const[movies,setmovies]=useState([])
+
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
@@ -24,7 +23,7 @@ function Trending() {
     })
   }
   useEffect(()=>{axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${api}&language=en-US&page=1` )
-  .then(res=>{setneww(res.data.results)})
+  .then(res=>{setmovies(res.data.results)})
   },[]);
 
 
@@ -51,12 +50,10 @@ function Trending() {
       spaceBetween={3}
       slidesPerView={windowDimenion.winWidth<640?3:6}
 
-
-      // onSwiper={(swiper) => console.log(swiper)}
     > 
-      {neww.map(x=>{return(
+      {movies.map(x=>{return(
 
-          <SwiperSlide className='mx-2 mb-2'><Card moviename={x.title.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
+          <SwiperSlide key={x.id} className='mx-2 mb-2'><Card moviename={x.title.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
         
       )})
 

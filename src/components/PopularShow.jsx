@@ -11,7 +11,8 @@ import 'swiper/css';
 
 
 function PopularShow() {
-  const[neww,setneww]=useState([])
+  const[movies,setmovies]=useState([])
+
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
@@ -24,7 +25,7 @@ function PopularShow() {
     })
   }
   useEffect(()=>{axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${api}&language=en-US&page=1` )
-  .then(res=>{setneww(res.data.results)})
+  .then(res=>{setmovies(res.data.results)})
   },[]);
 
 
@@ -50,20 +51,15 @@ function PopularShow() {
     <Swiper
       spaceBetween={3}
       slidesPerView={windowDimenion.winWidth<640?3:6}
-
-
-    //   onSwiper={(swiper) => console.log(swiper)}
     > 
-      {neww.map(x=>{return(
+      {movies.map(x=>{return(
 
-          <SwiperSlide className='mx-2 mb-2'><Card moviename={x.name.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
+          <SwiperSlide key={x.id} className='mx-2 mb-2'><Card moviename={x.name.substring(0,16)} id={x.id} image={`https://image.tmdb.org/t/p/w342${x.poster_path}`}/></SwiperSlide>
         
       )})
 
       }
 
-
-      
     </Swiper>
           </div>
       </div>

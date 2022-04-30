@@ -1,10 +1,7 @@
 import { useState } from "react"
 
 export default function ListItem({ movie }) {
-
-
-
-  const dodo=()=>{
+  const checkForReleasedate=()=>{
 
     if(movie.release_date || movie.first_air_date){
       return(<dd>{!movie.release_date?movie.first_air_date.substring(0,4):movie.release_date.substring(0,4)}</dd>)
@@ -13,11 +10,6 @@ export default function ListItem({ movie }) {
     }
 
   }
-
-
-
-
-
     const genre = ()=>{
       if(movie.genre_ids[0]==28){
         return('action')
@@ -63,7 +55,7 @@ export default function ListItem({ movie }) {
 
             <div className="ml-2">
               <dt className="sr-only">Year</dt>
-              {dodo()}
+              {checkForReleasedate()}
             </div>
             <div>
               <dt className="sr-only">Genre</dt>
@@ -74,16 +66,6 @@ export default function ListItem({ movie }) {
                 {genre()}
               </dd>
             </div>
-
-            {/* <div>
-              <dt className="sr-only">Runtime</dt>
-              <dd className="flex items-center">
-                <svg width="2" height="2" fill="currentColor" className="mx-2 text-slate-300" aria-hidden="true">
-                  <circle cx="1" cy="1" r="1" />
-                </svg>
-                {movie.runtime}
-              </dd>
-            </div> */}
             <div className="flex-none w-full mt-2 font-normal">
               <dt className="sr-only">Cast</dt>
               <dd className="text-slate-400">{movie.cast}</dd>

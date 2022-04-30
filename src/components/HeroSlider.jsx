@@ -18,63 +18,63 @@ import 'swiper/css/scrollbar';
 
 function HeroSlider() {
 
-  const[neww,setneww]=useState([])
+  const [movies, setmovies] = useState([])
 
 
   SwiperCore.use([Autoplay]);
 
 
-  useEffect(()=>{axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api}&language=en-US&page=1` )
-  .then(res=>{setneww(res.data.results.slice(0,4))})
-  },[]);
+  useEffect(() => {
+    axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api}&language=en-US&page=1`)
+    .then(res => { setmovies(res.data.results.slice(0, 4)) })
+  }, []);
 
 
-  const th= neww.map((x)=>{
-    if(x.overview.length>190){
-      return x.overview.slice(0,185) + '...'
-    }else{
+  const th = movies.map((x) => {
+    if (x.overview.length > 190) {
+      return x.overview.slice(0, 185) + '...'
+    } else {
       return x.overview
     }
 
   })
-  
-  console.log(neww)
+
   return (
-    <div className= 'h-full w-full'>
+    <div className='h-full w-full'>
 
       <Swiper
 
-      className='h-full px-0 sm:h-full lg:h-full lg:px-15  w-full '
+        className='h-full px-0 sm:h-full lg:h-full lg:px-15  w-full '
 
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={0}
-      slidesPerView={1}
-      navigation
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={0}
+        slidesPerView={1}
+        navigation
 
-  
-      loop={true}
-      autoplay={{
+
+        loop={true}
+        autoplay={{
           delay: 4000,
           disableOnInteraction: false
-      }}
-    >
-    <SwiperSlide>
-      <HeroSliderItem movie={neww[0]}></HeroSliderItem>
+        }}
+      >
+        <SwiperSlide>
+          <HeroSliderItem movie={movies[0]}></HeroSliderItem>
         </SwiperSlide>
-    <SwiperSlide >
-      <HeroSliderItem movie={neww[1]}></HeroSliderItem>
-</SwiperSlide>
-    <SwiperSlide >
-      <HeroSliderItem movie={neww[2]}></HeroSliderItem>
-</SwiperSlide>
-    <SwiperSlide >
-      <HeroSliderItem movie={neww[3]}></HeroSliderItem>
-</SwiperSlide>
+        <SwiperSlide >
+          <HeroSliderItem movie={movies[1]}></HeroSliderItem>
+        </SwiperSlide>
+        <SwiperSlide >
+          <HeroSliderItem movie={movies[2]}></HeroSliderItem>
+        </SwiperSlide>
+        <SwiperSlide >
+          <HeroSliderItem movie={movies[3]}></HeroSliderItem>
+        </SwiperSlide>
 
 
 
-    
-  </Swiper>
+
+      </Swiper>
     </div>
   )
 }

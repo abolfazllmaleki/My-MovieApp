@@ -4,12 +4,12 @@ export default function List({ children }) {
 
   const [load,setload]=useState(true)
 
-  const pu=()=>{
+  const minLoadTime=()=>{
     setTimeout(() => {
       setload(false)
     }, 1500);
   }
-  pu()
+  minLoadTime()
 
     return (
       <>
